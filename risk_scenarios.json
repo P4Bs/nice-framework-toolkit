@@ -1,292 +1,277 @@
 [
-    {
-        "id": "RS-001",
-        "scenario": "Proliferative Ransomware",
-        "critical_roles": [
-            "DD-WRL-001",
-            "PD-WRL-001",
-            "PD-WRL-003",
-            "PD-WRL-007"
-        ],
-        "weights": {
-            "tasks": 1.0,
-            "skills": 0.7,
-            "knowledge": 0.4
-        }
-    },
-    {
-        "id": "RS-002",
-        "scenario": "Sensitive Data Exfiltration",
-        "critical_roles": [
-            "DD-WRL-005",
-            "PD-WRL-005",
-            "OG-WRL-013",
-            "PD-WRL-001"
-        ],
-        "weights": {
-            "tasks": 0.8,
-            "skills": 0.9,
-            "knowledge": 0.5
-        }
-    },
-    {
-        "id": "RS-003",
-        "scenario": "Zero-Day Vulnerabilities in Proprietary Software",
-        "critical_roles": [
-            "DD-WRL-003",
-            "DD-WRL-005",
-            "DD-WRL-007",
-            "PD-WRL-007"
-        ],
-        "weights": {
-            "tasks": 0.6,
-            "skills": 1.0,
-            "knowledge": 0.7
-        }
-    },
-    {
-        "id": "RS-004",
-        "scenario": "Supply Chain Compromise",
-        "critical_roles": [
-            "DD-WRL-001",
-            "DD-WRL-006",
-            "OG-WRL-013",
-            "OG-WRL-002"
-        ],
-        "weights": {
-            "tasks": 0.5,
-            "skills": 0.8,
-            "knowledge": 1.0
-        }
-    },
-    {
-        "id": "RS-005",
-        "scenario": "Insecure Cloud Infrastructure Deployment",
-        "critical_roles": [
-            "DD-WRL-001",
-            "DD-WRL-002",
-            "IO-WRL-001",
-            "IO-WRL-005"
-        ],
-        "weights": {
-            "tasks": 0.7,
-            "skills": 1.0,
-            "knowledge": 0.6
-        }
-    },
-    {
-        "id": "RS-006",
-        "scenario": "Industrial Control Systems (OT/IoT) Failure",
-        "critical_roles": [
-            "DD-WRL-009",
-            "DD-WRL-001",
-            "PD-WRL-003",
-            "PD-WRL-001"
-        ],
-        "weights": {
-            "tasks": 1.0,
-            "skills": 0.8,
-            "knowledge": 0.5
-        }
-    },
-    {
-        "id": "RS-007",
-        "scenario": "Privacy Breach due to Poor Design",
-        "critical_roles": [
-            "DD-WRL-002",
-            "DD-WRL-006",
-            "OG-WRL-008",
-            "OG-WRL-013"
-        ],
-        "weights": {
-            "tasks": 0.4,
-            "skills": 0.7,
-            "knowledge": 1.0
-        }
-    },
-    {
-        "id": "RS-008",
-        "scenario": "Business Logic Targeted Attack (APIs)",
-        "critical_roles": [
-            "DD-WRL-003",
-            "DD-WRL-004",
-            "PD-WRL-007",
-            "PD-WRL-006"
-        ],
-        "weights": {
-            "tasks": 0.7,
-            "skills": 1.0,
-            "knowledge": 0.5
-        }
-    },
-    {
-        "id": "RS-009",
-        "scenario": "Technological Obsolescence and Security Gaps",
-        "critical_roles": [
-            "DD-WRL-008",
-            "DD-WRL-002",
-            "OG-WRL-015",
-            "IO-WRL-005"
-        ],
-        "weights": {
-            "tasks": 0.5,
-            "skills": 0.6,
-            "knowledge": 1.0
-        }
-    },
-    {
-        "id": "RS-010",
-        "scenario": "Systemic Failure due to Insufficient Security Testing",
-        "critical_roles": [
-            "DD-WRL-007",
-            "DD-WRL-004",
-            "PD-WRL-003",
-            "OG-WRL-012"
-        ],
-        "weights": {
-            "tasks": 0.9,
-            "skills": 0.8,
-            "knowledge": 0.4
-        }
-    },
-    {
-        "id": "RS-011",
-        "scenario": "CI/CD Pipeline Code Injection",
-        "critical_roles": [
-            "DD-WRL-003",
-            "DD-WRL-005",
-            "IO-WRL-006"
-        ],
-        "weights": {
-            "tasks": 0.8,
-            "skills": 1.0,
-            "knowledge": 0.4
-        }
-    },
-    {
-        "id": "RS-012",
-        "scenario": "Container and Orchestrator Misconfiguration",
-        "critical_roles": [
-            "DD-WRL-001",
-            "DD-WRL-002",
-            "IO-WRL-005"
-        ],
-        "weights": {
-            "tasks": 0.9,
-            "skills": 0.9,
-            "knowledge": 0.3
-        }
-    },
-    {
-        "id": "RS-013",
-        "scenario": "Weak IAM and Privilege Escalation",
-        "critical_roles": [
-            "DD-WRL-001",
-            "OG-WRL-013",
-            "PD-WRL-001"
-        ],
-        "weights": {
-            "tasks": 0.6,
-            "skills": 0.8,
-            "knowledge": 0.9
-        }
-    },
-    {
-        "id": "RS-014",
-        "scenario": "Application Layer DDoS Attack",
-        "critical_roles": [
-            "DD-WRL-001",
-            "IO-WRL-004",
-            "PD-WRL-001"
-        ],
-        "weights": {
-            "tasks": 1.0,
-            "skills": 0.6,
-            "knowledge": 0.3
-        }
-    },
-    {
-        "id": "RS-015",
-        "scenario": "Secret Leakage in Code Repositories",
-        "critical_roles": [
-            "DD-WRL-005",
-            "DD-WRL-003",
-            "OG-WRL-013"
-        ],
-        "weights": {
-            "tasks": 0.7,
-            "skills": 0.9,
-            "knowledge": 0.6
-        }
-    },
-    {
-        "id": "RS-016",
-        "scenario": "Business Interruption due to Infrastructure Disaster",
-        "critical_roles": [
-            "DD-WRL-001",
-            "IO-WRL-005",
-            "OG-WRL-001"
-        ],
-        "weights": {
-            "tasks": 0.9,
-            "skills": 0.5,
-            "knowledge": 0.8
-        }
-    },
-    {
-        "id": "RS-017",
-        "scenario": "Artificial Intelligence Model Manipulation",
-        "critical_roles": [
-            "DD-WRL-008",
-            "DD-WRL-001",
-            "PD-WRL-006"
-        ],
-        "weights": {
-            "tasks": 0.4,
-            "skills": 0.9,
-            "knowledge": 1.0
-        }
-    },
-    {
-        "id": "RS-018",
-        "scenario": "Session Hijacking and CSRF in Web Apps",
-        "critical_roles": [
-            "DD-WRL-003",
-            "DD-WRL-005",
-            "PD-WRL-007"
-        ],
-        "weights": {
-            "tasks": 0.8,
-            "skills": 0.9,
-            "knowledge": 0.4
-        }
-    },
-    {
-        "id": "RS-019",
-        "scenario": "Insecure Communication Protocol Exploitation",
-        "critical_roles": [
-            "DD-WRL-001",
-            "IO-WRL-004",
-            "PD-WRL-007"
-        ],
-        "weights": {
-            "tasks": 0.9,
-            "skills": 0.8,
-            "knowledge": 0.5
-        }
-    },
-    {
-        "id": "RS-020",
-        "scenario": "Regulatory Compliance Failure",
-        "critical_roles": [
-            "OG-WRL-002",
-            "OG-WRL-006",
-            "OG-WRL-008"
-        ],
-        "weights": {
-            "tasks": 0.3,
-            "skills": 0.7,
-            "knowledge": 1.0
-        }
+  {
+    "id": "RS-01",
+    "scenario": "Proliferative Ransomware",
+    "critical_roles": [
+      "DD-WRL-001",
+      "PD-WRL-001",
+      "PD-WRL-003",
+      "PD-WRL-007"
+    ],
+    "weights": {
+      "tasks": 1,
+      "skills": 0.7,
+      "knowledge": 0.4
     }
+  },
+  {
+    "id": "RS-02",
+    "scenario": "Sensitive Data Exfiltration",
+    "critical_roles": [
+      "DD-WRL-005",
+      "PD-WRL-005",
+      "OG-WRL-013",
+      "PD-WRL-001"
+    ],
+    "weights": {
+      "tasks": 0.8,
+      "skills": 0.9,
+      "knowledge": 0.5
+    }
+  },
+  {
+    "id": "RS-03",
+    "scenario": "Zero-Day Vulnerabilities in Proprietary Software",
+    "critical_roles": [
+      "DD-WRL-003",
+      "DD-WRL-005",
+      "DD-WRL-007",
+      "PD-WRL-007"
+    ],
+    "weights": {
+      "tasks": 0.6,
+      "skills": 1,
+      "knowledge": 0.7
+    }
+  },
+  {
+    "id": "RS-04",
+    "scenario": "Supply Chain Compromise",
+    "critical_roles": [
+      "DD-WRL-001",
+      "DD-WRL-006",
+      "OG-WRL-013",
+      "OG-WRL-002"
+    ],
+    "weights": {
+      "tasks": 0.5,
+      "skills": 0.8,
+      "knowledge": 1
+    }
+  },
+  {
+    "id": "RS-05",
+    "scenario": "Insecure Cloud Infrastructure Deployment",
+    "critical_roles": [
+      "DD-WRL-001",
+      "DD-WRL-002",
+      "IO-WRL-001",
+      "IO-WRL-005"
+    ],
+    "weights": {
+      "tasks": 0.7,
+      "skills": 1,
+      "knowledge": 0.6
+    }
+  },
+  {
+    "id": "RS-06",
+    "scenario": "Privacy Breach due to Poor Design",
+    "critical_roles": [
+      "DD-WRL-002",
+      "DD-WRL-006",
+      "OG-WRL-008",
+      "OG-WRL-013"
+    ],
+    "weights": {
+      "tasks": 0.4,
+      "skills": 0.7,
+      "knowledge": 1
+    }
+  },
+  {
+    "id": "RS-07",
+    "scenario": "Business Logic Targeted Attack (APIs)",
+    "critical_roles": [
+      "DD-WRL-003",
+      "DD-WRL-004",
+      "PD-WRL-007",
+      "PD-WRL-006"
+    ],
+    "weights": {
+      "tasks": 0.7,
+      "skills": 1,
+      "knowledge": 0.5
+    }
+  },
+  {
+    "id": "RS-08",
+    "scenario": "Technological Obsolescence and Security Gaps",
+    "critical_roles": [
+      "DD-WRL-008",
+      "DD-WRL-002",
+      "OG-WRL-015",
+      "IO-WRL-005"
+    ],
+    "weights": {
+      "tasks": 0.5,
+      "skills": 0.6,
+      "knowledge": 1
+    }
+  },
+  {
+    "id": "RS-09",
+    "scenario": "Systemic Failure due to Insufficient Security Testing",
+    "critical_roles": [
+      "DD-WRL-007",
+      "DD-WRL-004",
+      "PD-WRL-003",
+      "OG-WRL-012"
+    ],
+    "weights": {
+      "tasks": 0.9,
+      "skills": 0.8,
+      "knowledge": 0.4
+    }
+  },
+  {
+    "id": "RS-010",
+    "scenario": "CI/CD Pipeline Code Injection",
+    "critical_roles": [
+      "DD-WRL-003",
+      "DD-WRL-005",
+      "IO-WRL-006"
+    ],
+    "weights": {
+      "tasks": 0.8,
+      "skills": 1,
+      "knowledge": 0.4
+    }
+  },
+  {
+    "id": "RS-011",
+    "scenario": "Container and Orchestrator Misconfiguration",
+    "critical_roles": [
+      "DD-WRL-001",
+      "DD-WRL-002",
+      "IO-WRL-005"
+    ],
+    "weights": {
+      "tasks": 0.9,
+      "skills": 0.9,
+      "knowledge": 0.3
+    }
+  },
+  {
+    "id": "RS-012",
+    "scenario": "Weak IAM and Privilege Escalation",
+    "critical_roles": [
+      "DD-WRL-001",
+      "OG-WRL-013",
+      "PD-WRL-001"
+    ],
+    "weights": {
+      "tasks": 0.6,
+      "skills": 0.8,
+      "knowledge": 0.9
+    }
+  },
+  {
+    "id": "RS-013",
+    "scenario": "Application Layer DDoS Attack",
+    "critical_roles": [
+      "DD-WRL-001",
+      "IO-WRL-004",
+      "PD-WRL-001"
+    ],
+    "weights": {
+      "tasks": 1,
+      "skills": 0.6,
+      "knowledge": 0.3
+    }
+  },
+  {
+    "id": "RS-014",
+    "scenario": "Secret Leakage in Code Repositories",
+    "critical_roles": [
+      "DD-WRL-005",
+      "DD-WRL-003",
+      "OG-WRL-013"
+    ],
+    "weights": {
+      "tasks": 0.7,
+      "skills": 0.9,
+      "knowledge": 0.6
+    }
+  },
+  {
+    "id": "RS-015",
+    "scenario": "Business Interruption due to Infrastructure Disaster",
+    "critical_roles": [
+      "DD-WRL-001",
+      "IO-WRL-005",
+      "OG-WRL-001"
+    ],
+    "weights": {
+      "tasks": 0.9,
+      "skills": 0.5,
+      "knowledge": 0.8
+    }
+  },
+  {
+    "id": "RS-016",
+    "scenario": "Artificial Intelligence Model Manipulation",
+    "critical_roles": [
+      "DD-WRL-008",
+      "DD-WRL-001",
+      "PD-WRL-006"
+    ],
+    "weights": {
+      "tasks": 0.4,
+      "skills": 0.9,
+      "knowledge": 1
+    }
+  },
+  {
+    "id": "RS-017",
+    "scenario": "Session Hijacking and CSRF in Web Apps",
+    "critical_roles": [
+      "DD-WRL-003",
+      "DD-WRL-005",
+      "PD-WRL-007"
+    ],
+    "weights": {
+      "tasks": 0.8,
+      "skills": 0.9,
+      "knowledge": 0.4
+    }
+  },
+  {
+    "id": "RS-018",
+    "scenario": "Insecure Communication Protocol Exploitation",
+    "critical_roles": [
+      "DD-WRL-001",
+      "IO-WRL-004",
+      "PD-WRL-007"
+    ],
+    "weights": {
+      "tasks": 0.9,
+      "skills": 0.8,
+      "knowledge": 0.5
+    }
+  },
+  {
+    "id": "RS-019",
+    "scenario": "Regulatory Compliance Failure",
+    "critical_roles": [
+      "OG-WRL-002",
+      "OG-WRL-006",
+      "OG-WRL-008"
+    ],
+    "weights": {
+      "tasks": 0.3,
+      "skills": 0.7,
+      "knowledge": 1
+    }
+  }
 ]
