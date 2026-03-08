@@ -1,0 +1,68 @@
+[
+    {
+        "scenario": "Ransomware",
+        "critical_roles": [
+            "PD-WRL-001",
+            "PD-WRL-003",
+            "PD-WRL-007",
+            "IN-WRL-002"
+        ]
+    },
+    {
+        "scenario": "Audit Failure",
+        "critical_roles": [
+            "OG-WRL-002",
+            "OG-WRL-013",
+            "OG-WRL-001"
+        ]
+    },
+    {
+        "scenario": "Phishing Campaign",
+        "critical_roles": [
+            "PD-WRL-001",
+            "PD-WRL-003",
+            "IO-WRL-005"
+        ]
+    },
+    {
+        "scenario": "Insider Threat",
+        "critical_roles": [
+            "PD-WRL-005",
+            "IN-WRL-002",
+            "OG-WRL-003"
+        ]
+    },
+    {
+        "scenario": "Supply Chain Compromise",
+        "critical_roles": [
+            "OG-WRL-013",
+            "DD-WRL-001",
+            "OG-WRL-002"
+        ]
+    },
+    {
+        "scenario": "Denial of Service (DoS)",
+        "critical_roles": [
+            "PD-WRL-001",
+            "IO-WRL-005",
+            "PD-WRL-003"
+        ]
+    },
+    {
+        "scenario": "Data Leak",
+        "critical_roles": [
+            "DD-WRL-005", 
+            "PD-WRL-001",
+            "PD-WRL-005",
+            "OG-WRL-013"
+        ]
+    },
+    {
+        "scenario": "Insecure Infrastructure Deployment",
+        "critical_roles": [
+            "DD-WRL-001",
+            "DD-WRL-002",
+            "IO-WRL-005"
+        ]
+    }
+]
