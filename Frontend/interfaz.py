@@ -12,10 +12,10 @@ def load_local_data():
     """Carga los archivos CSV y JSON proporcionados por el usuario"""
     try:
         # Cargar CSV de costes y scores
-        df_costs = pd.read_csv("roles_costs.csv")
+        df_costs = pd.read_csv("../Data/roles_costs.csv")
         
         # Cargar JSON de escenarios de riesgo
-        with open("risk_scenarios.json", "r", encoding='utf-8') as f:
+        with open("../Data/risk_scenarios.json", "r", encoding='utf-8') as f:
             scenarios = json.load(f)
             
         return df_costs, scenarios
