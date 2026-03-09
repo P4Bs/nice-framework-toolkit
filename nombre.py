@@ -2,31 +2,9 @@
 import csv
 import random
 
-COSTE_PRUEBA = 250000
+COSTE_PRUEBA = 100000
 PRECIO_CONTRATACION = 6400
 
-ELEMENTOS_DE_PRUEBA = [
-    {"nombre": "Laptop Pro",        "score": 95, "coste": 45},
-    {"nombre": "Monitor Curvo",     "score": 50, "coste": 25},
-    {"nombre": "Silla Ergonómica",  "score": 40, "coste": 20},
-    {"nombre": "Teclado Mecánico",  "score": 25, "coste": 10},
-    {"nombre": "Ratón Gaming",      "score": 20, "coste": 8},
-    {"nombre": "Cascos Wireless",   "score": 30, "coste": 15},
-    {"nombre": "Webcam 4K",         "score": 15, "coste": 12},
-    {"nombre": "Micrófono USB",     "score": 28, "coste": 14},
-    {"nombre": "Alfombrilla XL",    "score": 8,  "coste": 5},
-    {"nombre": "Soporte Monitor",   "score": 12, "coste": 7},
-    {"nombre": "Luz de Escritorio", "score": 18, "coste": 9},
-    {"nombre": "Disco SSD 2TB",     "score": 45, "coste": 18},
-    {"nombre": "Memoria RAM 32GB",  "score": 35, "coste": 12},
-    {"nombre": "Cable HDMI 2.1",    "score": 5,  "coste": 3},
-    {"nombre": "Hub USB-C",         "score": 10, "coste": 6},
-    {"nombre": "Ventilador PC",     "score": 7,  "coste": 4},
-    {"nombre": "Pasta Térmica",     "score": 3,  "coste": 2},
-    {"nombre": "Tira LED RGB",      "score": 12, "coste": 10},
-    {"nombre": "Altavoces 2.1",     "score": 22, "coste": 11},
-    {"nombre": "Reposapiés",        "score": 15, "coste": 13}
-]
 
 def cargarDatosCSV(nombre_archivo):
     lista_elementos = []
@@ -96,18 +74,26 @@ def cargarDatosParaGreedy(lista_elementos):
 #lista_greedy = cargarDatosParaGreedy(lista_elementos)
 
 
-def greedyAlgorith(presupuesto, lista_greedy_ordenado, coste_total=0, riesgo=0): #coste_total y riesgo son los valores iniciales, se usan para intentar impedir máximos locales
+def greedyAlgorith(presupuesto, lista_greedy_ordenado, coste_total=0, riesgo=0):
     lista_optimizada = []
-    while(coste_total < presupuesto and lista_greedy_ordenado):
-        elemento = lista_greedy_ordenado.pop(0)
-
-        coste_total += elemento["cost"]
-        riesgo += elemento["risk_impact"]
-        lista_optimizada.append(elemento)
-        
+    roles_seleccionados = set()
     
-    return lista_optimizada
+    candidatos = lista_greedy_ordenado.copy()
 
+    while candidatos and coste_total < presupuesto:
+        elemento = candidatos.pop(0)
+        
+        if elemento["role_id"] not in roles_seleccionados:
+            if coste_total + elemento["cost"] <= presupuesto:
+                
+                coste_total += elemento["cost"]
+                riesgo += elemento["risk_impact"]
+                
+                lista_optimizada.append(elemento)
+
+                roles_seleccionados.add(elemento["role_id"])
+                
+    return lista_optimizada
 
 lista_csv = cargarDatosCSV("roles_costs_with_month_column.csv")
 lista_greedy = cargarDatosParaGreedy(lista_csv)
@@ -120,6 +106,9 @@ printedo = [item["risk_impact"] for item in listado_optimo_1]
 print(sum(printedo))
 printedo = [item["cost"] for item in listado_optimo_1]
 print(sum(printedo))
+printedo = [item["role_id"] for item in listado_optimo_1]
+print(printedo)
+
 
 
 
