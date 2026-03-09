@@ -1,7 +1,7 @@
 import csv
 import logging
 
-from role import Role
+from Models.role import Role
 
 def extract_csv(csv_file: str) -> list[Role]:
     try:

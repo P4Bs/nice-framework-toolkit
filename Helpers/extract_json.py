@@ -1,7 +1,7 @@
 import json
 import logging
 
-from risk_scenario import RiskScenario, Weights
+from Models.risk_scenario import RiskScenario
 
 
 def load_json(json_file: str) -> list[RiskScenario]:
