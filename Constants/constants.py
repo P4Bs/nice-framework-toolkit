@@ -1,0 +1,6 @@
+from typing import TypeVar
+
+HIRE = "HIRING_CONTRACT"
+TRAIN = "TRAINING_CONTRACT"
+OUTSOURCE = "OUTSOURCE_CONTRACT"
+T = TypeVar("T")

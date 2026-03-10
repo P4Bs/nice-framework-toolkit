@@ -1,31 +1,9 @@
-
-import csv
-import random
+from Helpers.extract_csv import extract_csv
 
 COSTE_PRUEBA = 100000
 PRECIO_CONTRATACION = 6400
 
-
-def cargarDatosCSV(nombre_archivo):
-    lista_elementos = []
-    with open(nombre_archivo, mode='r') as archivo:
-
-        lector = csv.DictReader(archivo)
-        for fila in lector:
-            item = {
-                "role_id" : fila["role_id"],
-                "training_cost" : int(fila["training_cost_usd"]),
-                "outsourcing_cost" : int(fila["outsourcing_cost_usd"]),
-                "bonus_cost" : int(fila["bonus_cost_usd"]),
-                "time_to_hire" : float(fila["time_to_hire_months"]),
-                "role_criticality" : float(fila["role_criticality"]),
-                "risk_impact" : float(fila["risk_impact"]),
-            }
-            lista_elementos.append(item)
-
-    return lista_elementos
-
-def cargarDatosParaGreedy(lista_elementos):
+def loadDecisionData(lista_elementos) -> :
     lista_contratados = []
     lista_estudiados = []
     lista_subcontratados = []
@@ -95,8 +73,8 @@ def greedyAlgorith(presupuesto, lista_greedy_ordenado, coste_total=0, riesgo=0):
                 
     return lista_optimizada
 
-lista_csv = cargarDatosCSV("roles_costs_with_month_column.csv")
-lista_greedy = cargarDatosParaGreedy(lista_csv)
+lista_csv = extract_csv("roles_costs_with_month_column.csv")
+lista_greedy = loadDecisionData(lista_csv)
 lista_greedy_ordenada = sorted(lista_greedy, key=lambda x: x["ratio"], reverse=True)
 
 

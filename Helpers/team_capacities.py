@@ -9,3 +9,5 @@ def compare_teams(current_team: Team, target_team: Team) -> Tuple[float, set[str
     if len(skillset_match_set) < len(target_team.complete_skillset):
         preparation_ratio = len(skillset_match_set) / len(target_team.complete_skillset)
     return preparation_ratio, skillset_match_set, skillset_diff_set
+
+def weight_team
