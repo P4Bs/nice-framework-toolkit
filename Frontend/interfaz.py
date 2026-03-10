@@ -8,16 +8,12 @@ import pandas as pd
 import json
 import time
 
-# --- IMPORTACIONES DE TUS CLASES Y MÓDULOS ---
-# ⚠️ CAMBIA 'models' POR EL NOMBRE DEL ARCHIVO DONDE TIENES TUS CLASES
-
 from Models.risk_scenario import RiskScenario
 from Models.role import Role
 from Helpers.team_capacities import get_role_capacities
-
-# ⚠️ DESCOMENTA ESTO CUANDO FRAN TERMINE SUS MÓDULOS
-# from team_capacities import get_role_capacities
-# from analyzer import calculate_role_contracts, optimize_team_composition
+from analyzer import calculate_role_contracts
+from analyzer import optimize_team_composition
+from Models.role_cost import RoleCost
 
 # ==========================================
 # CONFIGURACIÓN DE LA PÁGINA Y CONSTANTES
@@ -28,7 +24,6 @@ PRESUPUESTO_MAXIMO = 250000
 
 st.title("🛡️ CISO Decision Support System (DSS)")
 st.subheader("Optimización de Fuerza de Trabajo y Mitigación de Riesgos")
-st.write("Cargando módulos de análisis de forma progresiva...")
 
 # ==========================================
 # INTERFAZ: CONTENEDORES PARA CARGA PROGRESIVA
@@ -78,9 +73,16 @@ with placeholder_capacidades.container():
                 
             roles_json_set = set(r.role_id for r in roles_obj)
 
-            # 4. Llamadas a las funciones
-            T_req, S_req, K_req = get_role_capacities(roles_escenarios_set)
-            T_disp, S_disp, K_disp = get_role_capacities(roles_json_set)
+            req_capacities = get_role_capacities(roles_escenarios_set)
+            disp_capacities = get_role_capacities(roles_json_set)
+
+            T_req = req_capacities.tasks
+            S_req = req_capacities.skills
+            K_req = req_capacities.knowledge
+
+            T_disp = disp_capacities.tasks
+            S_disp = disp_capacities.skills
+            K_disp = disp_capacities.knowledge
             
 
             # 5. Calcular intersecciones
@@ -113,7 +115,6 @@ with placeholder_capacidades.container():
 # ==========================================
 with placeholder_optimizacion.container():
     with st.spinner("Ejecutando algoritmo de optimización de contratos..."):
-        time.sleep(2.5) # Simulación de carga visual
         
         try:
             # 1. Extraer contenido del CSV
@@ -123,35 +124,67 @@ with placeholder_optimizacion.container():
             df_filtrado = df_costs[df_costs['role_id'].isin(roles_json_set)]
             
             # 3. Proporcionar lista a la función calculate_role_contracts
-            lista_roles_filtrados = df_filtrado.to_dict('records')
+            lista_diccionarios = df_filtrado.to_dict('records')
+            lista_roles_filtrados = []
             
-            # LLAMADAS A LAS FUNCIONES DE FRAN (Descomentar cuando existan)
-            # contratos = calculate_role_contracts(lista_roles_filtrados)
-            # resultados_optimizacion = optimize_team_composition(contratos, PRESUPUESTO_MAXIMO)
+            for d in lista_diccionarios:
+                # Extraemos los datos del CSV mapeando los nombres reales de tus columnas
+                # Usamos .get() con un valor por defecto para que no falle si falta alguna
+                role_id = str(d.get("role_id", ""))
+                name = str(d.get("role", d.get("name", ""))) # En tu CSV original se llamaba 'role'
+                category = str(d.get("category", "General"))
+                
+                # Buscamos los costes (quitando el _usd si tu CSV lo tiene así)
+                training_cost = int(d.get("training_cost_usd", d.get("training_cost", 0)))
+                outsourcing_cost = int(d.get("outsourcing_cost_usd", d.get("outsourcing_cost", 0)))
+                time_to_hire = float(d.get("time_to_hire_months", 0.0))
+                bonus_cost = int(d.get("bonus_cost_usd", d.get("bonus_cost", 0)))
+                
+                # Scores
+                criticality = float(d.get("role_criticality", d.get("criticality_score", 0.0)))
+                risk_impact = float(d.get("risk_impact", d.get("risk_impact_score", 0.0)))
+
+                # 🪄 Creamos el objeto pasándole los parámetros en el ORDEN EXACTO
+                # que pide el init_parameters_args de Fran:
+                nuevo_rol = RoleCost(
+                    role_id, 
+                    name, 
+                    category, 
+                    training_cost, 
+                    outsourcing_cost, 
+                    time_to_hire, 
+                    bonus_cost, 
+                    criticality, 
+                    risk_impact
+                )
+                
+                lista_roles_filtrados.append(nuevo_rol)
             
-            # --- DATOS SIMULADOS TEMPORALES ---
-            resultados_optimizacion = {
-                "roles_contratados": ["Analista de Inteligencia de Amenazas (PR-TIA-001)", 
-                                      "Ingeniero de Seguridad Cloud (PR-INF-002)", 
-                                      "Especialista en Respuesta a Incidentes (PR-CIR-001)"],
-                "coste_total": 234500.50
-            }
-            # -----------------------------------
+            # LLAMADAS REALES A LAS FUNCIONES DE FRAN
+            contratos = calculate_role_contracts(lista_roles_filtrados)
+            
+            # Ordenamos la lista por el ratio
+            contratos_ordenados = sorted(contratos, key=lambda x: x.effectivity_ratio, reverse=True)
+            
+            # ¡PARÁMETROS EN EL ORDEN CORRECTO! (Primero Presupuesto, luego la Lista)
+            resultados_optimizacion = optimize_team_composition(PRESUPUESTO_MAXIMO, contratos_ordenados)
             
             # 4. Mostrar resultados formateados por pantalla
             st.write("### 💼 Resultados de Contratación Optimizada")
             
-            coste = resultados_optimizacion['coste_total']
+            # ⚠️ ATENCIÓN AQUÍ: Extraemos el coste y la lista de roles
+            coste_total = sum(rol.cost for rol in resultados_optimizacion)
             
             # Formateo visual del presupuesto
-            if coste <= PRESUPUESTO_MAXIMO:
-                st.success(f"**✅ Presupuesto Consumido:** ${coste:,.2f} / Límite: ${PRESUPUESTO_MAXIMO:,.2f}")
+            if coste_total <= PRESUPUESTO_MAXIMO:
+                st.success(f"**✅ Presupuesto Consumido:** ${coste_total:,.2f} / Límite: ${PRESUPUESTO_MAXIMO:,.2f}")
             else:
-                st.error(f"**⚠️ Presupuesto Excedido:** ${coste:,.2f} / Límite: ${PRESUPUESTO_MAXIMO:,.2f}")
+                st.error(f"**⚠️ Presupuesto Excedido:** ${coste_total:,.2f} / Límite: ${PRESUPUESTO_MAXIMO:,.2f}")
                 
             st.write("#### Roles Seleccionados para Contratación:")
-            for rol in resultados_optimizacion['roles_contratados']:
-                st.markdown(f"- 🧑‍💻 **{rol}**")
-                
+            for rol in resultados_optimizacion:
+           
+                st.markdown(f"- 🧑‍💻 **Rol ID: {rol.role_id}** | Modalidad: `{rol.contract}` | Inversión: ${rol.cost:,.2f} | Impacto mitigado: {rol.risk_impact:.2f}")
         except Exception as e:
             st.error(f"Error en el Paso 3: {e}")
+        
