@@ -26,16 +26,16 @@ def calculate_role_contracts(role_list: list [RoleCost]) -> list[RoleContract]:
             if training_effectivity_ratio > hiring_effectivity_ratio \
             else (HIRE, hiring_cost, hiring_effectivity_ratio)
         role_selection = (OUTSOURCE, role.outsourcing_cost, outsourcing_effectivity_ratio) \
-            if outsourcing_effectivity_ratio > role_selection.index(2) \
+            if outsourcing_effectivity_ratio > role_selection[2] \
             else role_selection
 
         role_contracts.append(
             RoleContract(
                 role_id=role.role_id,
-                contract=role_selection.index(0),
-                cost=role_selection.index(1),
+                contract=role_selection[0],
+                cost=role_selection[1],
                 risk_impact=role.risk_impact_score,
-                effectivity_ratio=role_selection.index(2)
+                effectivity_ratio=role_selection[2]
             )
         )
 
@@ -56,15 +56,15 @@ def optimize_team_composition(budget, ordered_role_contracts: list[RoleContract]
 
 lista_csv: list[RoleCost] = extract_csv("roles_costs_with_month_column.csv")
 lista_greedy = calculate_role_contracts(lista_csv)
-lista_greedy_ordenada = sorted(lista_greedy, key=lambda x: x["ratio"], reverse=True)
+lista_greedy_ordenada = sorted(lista_greedy, key=lambda x: x.effectivity_ratio, reverse=True)
 
 listado_optimo_1 = optimize_team_composition(BUDGET, lista_greedy_ordenada)
 
-printedo = [item["risk_impact"] for item in listado_optimo_1]
+printedo = [item.risk_impact for item in listado_optimo_1]
 print(sum(printedo))
-printedo = [item["cost"] for item in listado_optimo_1]
+printedo = [item.cost for item in listado_optimo_1]
 print(sum(printedo))
-printedo = [item["role_id"] for item in listado_optimo_1]
+printedo = [item.role_id for item in listado_optimo_1]
 print(printedo)
 
 
