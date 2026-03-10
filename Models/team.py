@@ -1,5 +1,7 @@
 import re
 from typing import Tuple
+
+from Models.risk_scenario import Weights
 from Services.nice_service import NiceService
 
 
@@ -11,6 +13,30 @@ class Capacities:
         self.role_id = role_id
         self.abilities = abilities
         self.nice = NiceService()
+
+
+class TeamCapacities:
+    tasks: set[str]
+    skills: set[str]
+    knowledge: set[str]
+
+    def __init__(self, *args):
+        if len(args) == 0:
+            self.tasks = set()
+            self.skills = set()
+            self.knowledge = set()
+        elif len(args) == 3:
+            self.tasks = args[0]
+            self.skills = args[1]
+            self.knowledge = args[2]
+
+
+class WeightedCapacities:
+    role_id: str
+    tasks: list[str]
+    skills: list[str]
+    knowledge: list[str]
+    weights: Weights
 
 class Team:
     team_coverage: set[Capacities]
