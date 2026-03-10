@@ -1,32 +1,30 @@
-{
-  "roles": [
-    {
-      "role_id": "PD-WRL-001",
-      "name": "Defensive Cybersecurity"
-    },
-    {
-      "role_id": "PD-WRL-003",
-      "name": "Incident Response"
-    },
-    {
-      "role_id": "PD-WRL-004",
-      "name": "Infrastructure Support"
-    },
-    {
-      "role_id": "PD-WRL-005",
-      "name": "Insider Threat Analysis"
-    },
-    {
-      "role_id": "PD-WRL-007",
-      "name": "Vulnerability Analysis"
-    },
-    {
-      "role_id": "DD-WRL-001",
-      "name": "Cybersecurity Architecture"
-    },
-    {
-      "role_id": "DD-WRL-005",
-      "name": "Software Security Assessment"
-    }
-  ]
-}
+[
+  {
+    "role_id": "PD-WRL-001",
+    "name": "Defensive Cybersecurity"
+  },
+  {
+    "role_id": "PD-WRL-003",
+    "name": "Incident Response"
+  },
+  {
+    "role_id": "PD-WRL-004",
+    "name": "Infrastructure Support"
+  },
+  {
+    "role_id": "PD-WRL-005",
+    "name": "Insider Threat Analysis"
+  },
+  {
+    "role_id": "PD-WRL-007",
+    "name": "Vulnerability Analysis"
+  },
+  {
+    "role_id": "DD-WRL-001",
+    "name": "Cybersecurity Architecture"
+  },
+  {
+    "role_id": "DD-WRL-005",
+    "name": "Software Security Assessment"
+  }
+]
