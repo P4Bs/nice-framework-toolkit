@@ -45,9 +45,11 @@ def optimize_team_composition(budget, ordered_role_contracts: list[RoleContract]
     selected_contracts: list[RoleContract] = []
 
     for role_contract in ordered_role_contracts:
-        if total_cost > budget:
-            break
+        # ¿Si compro este rol me paso del límite?
+        if total_cost + role_contract.cost > budget:
+            continue  # Me lo salto porque es muy caro, pero sigo mirando otros más baratos
 
+        # Si me lo puedo permitir, lo compro
         total_cost += role_contract.cost
         selected_contracts.append(role_contract)
 
