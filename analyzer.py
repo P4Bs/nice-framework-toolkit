@@ -54,7 +54,7 @@ def optimize_team_composition(budget, ordered_role_contracts: list[RoleContract]
     return selected_contracts
 
 
-lista_csv: list[RoleCost] = extract_csv("roles_costs_with_month_column.csv")
+lista_csv: list[RoleCost] = extract_csv("../Data/roles_costs_with_month_column.csv")
 lista_greedy = calculate_role_contracts(lista_csv)
 lista_greedy_ordenada = sorted(lista_greedy, key=lambda x: x.effectivity_ratio, reverse=True)
 

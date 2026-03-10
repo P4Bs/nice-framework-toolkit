@@ -7,7 +7,7 @@ def extract_csv(csv_file: str) -> list[RoleCost]:
     try:
         with open(csv_file, "r") as csv_file:
             reader = csv.reader(csv_file, delimiter=',')
-            next(reader) # Skip column specification
+            next(reader)
             return [RoleCost(row) for row in reader]
     except Exception as e:
         logging.error(e)
