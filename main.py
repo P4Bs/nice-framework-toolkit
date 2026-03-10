@@ -1,9 +1,12 @@
 from Helpers.team_capacities import get_role_capacities
-from Models.team import extract_roles_capacities
 from Services.nice_service import NiceService
 from Helpers.extract_json import load_json
 from Models.risk_scenario import RiskScenario
 from Models.role import Role
+from Models.contract import RoleContract
+from analyzer import calculate_role_contracts, optimize_team_composition
+from Helpers.extract_csv import extract_csv
+
 
 def calculate_realist_security_score(team_caps, risk_scenarios) -> float:
     """
@@ -68,6 +71,32 @@ def main():
     score_actual = calculate_realist_security_score(caps_roles, risk_scenarios)
 
     print(f"El score de seguridad actual del equipo es: {score_actual}%")
+
+    # 1. Extraer el CSV 
+    lista_csv = extract_csv("roles_costs_with_month_column.csv")
+    lista_greedy = calculate_role_contracts(lista_csv)
+    
+    listado_optimo = optimize_team_composition(250000, lista_greedy)
+
+    # 4. RESULTADOS DE LA OPTIMIZACIÓN
+    coste_total = sum(item.cost for item in listado_optimo)
+    roles_adquiridos = [item.role_id for item in listado_optimo]
+
+    # 5. ESTADO FINAL (Después de la optimización)
+    equipo_actual = list(roles_json_set)
+    
+    # Unimos los roles que ya teníamos con los nuevos que hemos comprado
+    equipo_final = equipo_actual + roles_adquiridos
+    
+    # Sacamos las capacidades del nuevo súper-equipo y calculamos el score
+    caps_finales = get_role_capacities(equipo_final)
+    score_final = calculate_realist_security_score(caps_finales, risk_scenarios)
+    
+    # Añadimos unos prints para que veas el resultado mágico por consola:
+    print(f"💰 Presupuesto gastado: ${coste_total} / $250000")
+    print(f"👥 Nuevos roles adquiridos: {len(roles_adquiridos)}")
+    print(f"🚀 SCORE DE SEGURIDAD FINAL: {score_final}%")
+    print(f"📈 Mejora de seguridad: +{score_final - score_actual:.2f} %")
     
 
 if __name__ == '__main__':
