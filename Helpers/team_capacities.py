@@ -1,8 +1,7 @@
 import re
 from typing import Tuple
 
-from Models.role_requirements import RoleRequirements
-from Models.team import Team, WeightedCapacities, TeamCapacities
+from Models.team import Team, TeamCapacities
 from Services.nice_service import NiceService
 
 TASK_REGEX = re.compile("^T\d{4}$")
