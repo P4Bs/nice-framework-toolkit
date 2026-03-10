@@ -1,7 +1,6 @@
 import json
 import logging
 from urllib.request import urlopen, Request
-from collections import defaultdict
 from Models.relationship import Relationship
 
 
