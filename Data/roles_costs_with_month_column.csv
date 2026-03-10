@@ -1,42 +1,42 @@
 role,role_id,category,training_cost_usd,outsourcing_cost_usd,time_to_hire_months,bonus_cost_usd,role_criticality,risk_impact
-Communications Security (COMSEC) Management,OG-WRL-001,Oversight and Governance,8000,45000,2.0,6000,0.72,0.75
-Cybersecurity Policy and Planning,OG-WRL-002,Oversight and Governance,6000,40000,1.5,5000,0.65,0.60
-Cybersecurity Workforce Management,OG-WRL-003,Oversight and Governance,5000,35000,1.3,4500,0.55,0.45
-Cybersecurity Curriculum Development,OG-WRL-004,Oversight and Governance,4500,30000,1.2,4000,0.45,0.35
-Cybersecurity Instruction,OG-WRL-005,Oversight and Governance,3500,25000,1.0,3500,0.40,0.30
-Cybersecurity Legal Advice,OG-WRL-006,Oversight and Governance,5000,55000,1.7,6500,0.68,0.65
-Executive Cybersecurity Leadership,OG-WRL-007,Oversight and Governance,7000,70000,2.5,10000,0.90,0.85
-Privacy Compliance,OG-WRL-008,Oversight and Governance,5500,38000,1.5,5000,0.70,0.70
-Product Support Management,OG-WRL-009,Oversight and Governance,4000,32000,1.2,4000,0.50,0.40
-Program Management,OG-WRL-010,Oversight and Governance,5000,40000,1.5,5500,0.60,0.55
-Secure Project Management,OG-WRL-011,Oversight and Governance,4500,35000,1.3,4500,0.58,0.52
-Security Control Assessment,OG-WRL-012,Oversight and Governance,7000,48000,1.8,6000,0.80,0.78
-Systems Authorization,OG-WRL-013,Oversight and Governance,6500,45000,1.7,5500,0.78,0.75
-Systems Security Management,OG-WRL-014,Oversight and Governance,7000,50000,1.8,6000,0.82,0.80
-Technology Portfolio Management,OG-WRL-015,Oversight and Governance,5000,42000,1.5,5000,0.60,0.55
-Technology Program Auditing,OG-WRL-016,Oversight and Governance,5500,40000,1.5,5000,0.65,0.60
-Cybersecurity Architecture,DD-WRL-001,Design and Development,10000,60000,2.3,8000,0.92,0.90
-Enterprise Architecture,DD-WRL-002,Design and Development,9000,58000,2.2,7500,0.85,0.82
-Secure Software Development,DD-WRL-003,Design and Development,8000,52000,2.0,7000,0.88,0.85
-Secure Systems Development,DD-WRL-004,Design and Development,8500,55000,2.2,7500,0.87,0.85
-Software Security Assessment,DD-WRL-005,Design and Development,7500,48000,1.8,6500,0.80,0.78
-Systems Requirements Planning,DD-WRL-006,Design and Development,6000,42000,1.7,5500,0.72,0.68
-Systems Testing and Evaluation,DD-WRL-007,Design and Development,6500,44000,1.7,5500,0.75,0.70
-Technology Research and Development,DD-WRL-008,Design and Development,9000,55000,2.2,7000,0.80,0.72
-Operational Technology (OT) Cybersecurity Engineering,DD-WRL-009,Design and Development,11000,65000,2.5,9000,0.93,0.92
-Data Analysis,IO-WRL-001,Implementation and Operation,6000,40000,1.5,5000,0.70,0.65
-Database Administration,IO-WRL-002,Implementation and Operation,5500,38000,1.3,4500,0.72,0.68
-Knowledge Management,IO-WRL-003,Implementation and Operation,4000,28000,1.2,3500,0.45,0.38
-Network Operations,IO-WRL-004,Implementation and Operation,7000,46000,1.7,6000,0.80,0.78
-Systems Administration,IO-WRL-005,Implementation and Operation,6000,40000,1.5,5500,0.75,0.72
-Systems Security Analysis,IO-WRL-006,Implementation and Operation,7500,48000,1.8,6500,0.82,0.80
-Technical Support,IO-WRL-007,Implementation and Operation,3500,25000,1.0,3000,0.40,0.35
-Defensive Cybersecurity,PD-WRL-001,Protection and Defense,9000,55000,2.2,8000,0.92,0.90
-Digital Forensics,PD-WRL-002,Protection and Defense,8500,52000,2.0,7500,0.85,0.82
-Incident Response,PD-WRL-003,Protection and Defense,8000,50000,1.8,7500,0.90,0.92
-Infrastructure Support,PD-WRL-004,Protection and Defense,6500,42000,1.6,5500,0.72,0.70
-Insider Threat Analysis,PD-WRL-005,Protection and Defense,7500,50000,1.9,7000,0.88,0.88
-Threat Analysis,PD-WRL-006,Protection and Defense,8000,52000,2.0,7500,0.90,0.90
-Vulnerability Analysis,PD-WRL-007,Protection and Defense,8500,54000,2.1,8000,0.92,0.92
-Cybercrime Investigation,IN-WRL-001,Investigation,7000,50000,2.0,7000,0.80,0.82
-Digital Evidence Analysis,IN-WRL-002,Investigation,7500,52000,2.1,7000,0.82,0.82
+Communications Security (COMSEC) Management,OG-WRL-001,Oversight and Governance,8000,45000,2.0,6000,0.12,0.75
+Cybersecurity Policy and Planning,OG-WRL-002,Oversight and Governance,6000,40000,1.5,5000,0.18,0.60
+Cybersecurity Workforce Management,OG-WRL-003,Oversight and Governance,5000,35000,1.3,4500,0.1,0.45
+Cybersecurity Curriculum Development,OG-WRL-004,Oversight and Governance,4500,30000,1.2,4000,0.07,0.35
+Cybersecurity Instruction,OG-WRL-005,Oversight and Governance,3500,25000,1.0,3500,0.06,0.30
+Cybersecurity Legal Advice,OG-WRL-006,Oversight and Governance,5000,55000,1.7,6500,0.14,0.65
+Executive Cybersecurity Leadership,OG-WRL-007,Oversight and Governance,7000,70000,2.5,10000,0.22,0.85
+Privacy Compliance,OG-WRL-008,Oversight and Governance,5500,38000,1.5,5000,0.15,0.70
+Product Support Management,OG-WRL-009,Oversight and Governance,4000,32000,1.2,4000,0.08,0.40
+Program Management,OG-WRL-010,Oversight and Governance,5000,40000,1.5,5500,0.12,0.55
+Secure Project Management,OG-WRL-011,Oversight and Governance,4500,35000,1.3,4500,0.11,0.52
+Security Control Assessment,OG-WRL-012,Oversight and Governance,7000,48000,1.8,6000,0.2,0.78
+Systems Authorization,OG-WRL-013,Oversight and Governance,6500,45000,1.7,5500,0.19,0.75
+Systems Security Management,OG-WRL-014,Oversight and Governance,7000,50000,1.8,6000,0.21,0.80
+Technology Portfolio Management,OG-WRL-015,Oversight and Governance,5000,42000,1.5,5000,0.1,0.55
+Technology Program Auditing,OG-WRL-016,Oversight and Governance,5500,40000,1.5,5000,0.13,0.60
+Cybersecurity Architecture,DD-WRL-001,Design and Development,10000,60000,2.3,8000,0.28,0.90
+Enterprise Architecture,DD-WRL-002,Design and Development,9000,58000,2.2,7500,0.2,0.82
+Secure Software Development,DD-WRL-003,Design and Development,8000,52000,2.0,7000,0.25,0.85
+Secure Systems Development,DD-WRL-004,Design and Development,8500,55000,2.2,7500,0.24,0.85
+Software Security Assessment,DD-WRL-005,Design and Development,7500,48000,1.8,6500,0.22,0.78
+Systems Requirements Planning,DD-WRL-006,Design and Development,6000,42000,1.7,5500,0.16,0.68
+Systems Testing and Evaluation,DD-WRL-007,Design and Development,6500,44000,1.7,5500,0.17,0.70
+Technology Research and Development,DD-WRL-008,Design and Development,9000,55000,2.2,7000,0.18,0.72
+Operational Technology (OT) Cybersecurity Engineering,DD-WRL-009,Design and Development,11000,65000,2.5,9000,0.3,0.92
+Data Analysis,IO-WRL-001,Implementation and Operation,6000,40000,1.5,5000,0.14,0.65
+Database Administration,IO-WRL-002,Implementation and Operation,5500,38000,1.3,4500,0.15,0.68
+Knowledge Management,IO-WRL-003,Implementation and Operation,4000,28000,1.2,3500,0.07,0.38
+Network Operations,IO-WRL-004,Implementation and Operation,7000,46000,1.7,6000,0.2,0.78
+Systems Administration,IO-WRL-005,Implementation and Operation,6000,40000,1.5,5500,0.18,0.72
+Systems Security Analysis,IO-WRL-006,Implementation and Operation,7500,48000,1.8,6500,0.22,0.80
+Technical Support,IO-WRL-007,Implementation and Operation,3500,25000,1.0,3000,0.06,0.35
+Defensive Cybersecurity,PD-WRL-001,Protection and Defense,9000,55000,2.2,8000,0.3,0.90
+Digital Forensics,PD-WRL-002,Protection and Defense,8500,52000,2.0,7500,0.22,0.82
+Incident Response,PD-WRL-003,Protection and Defense,8000,50000,1.8,7500,0.32,0.92
+Infrastructure Support,PD-WRL-004,Protection and Defense,6500,42000,1.6,5500,0.15,0.70
+Insider Threat Analysis,PD-WRL-005,Protection and Defense,7500,50000,1.9,7000,0.25,0.88
+Threat Analysis,PD-WRL-006,Protection and Defense,8000,52000,2.0,7500,0.28,0.90
+Vulnerability Analysis,PD-WRL-007,Protection and Defense,8500,54000,2.1,8000,0.3,0.92
+Cybercrime Investigation,IN-WRL-001,Investigation,7000,50000,2.0,7000,0.18,0.82
+Digital Evidence Analysis,IN-WRL-002,Investigation,7500,52000,2.1,7000,0.19,0.82

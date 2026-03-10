@@ -5,8 +5,8 @@ from Helpers.extract_csv import extract_csv
 from Models.contract import RoleContract
 from Models.role_cost import RoleCost
 
-BUDGET = 100000
-HIRING_COST = 6400
+BUDGET = 250000
+HIRING_COST = 700
 
 
 def calculate_role_contracts(role_list: list [RoleCost]) -> list[RoleContract]:
@@ -26,7 +26,7 @@ def calculate_role_contracts(role_list: list [RoleCost]) -> list[RoleContract]:
             if training_effectivity_ratio > hiring_effectivity_ratio \
             else (HIRE, hiring_cost, hiring_effectivity_ratio)
         role_selection = (OUTSOURCE, role.outsourcing_cost, outsourcing_effectivity_ratio) \
-            if outsourcing_effectivity_ratio > role_selection[2]\
+            if outsourcing_effectivity_ratio > role_selection[2] \
             else role_selection
 
         role_contracts.append(

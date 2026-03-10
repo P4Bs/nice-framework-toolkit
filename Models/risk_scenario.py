@@ -25,11 +25,11 @@ class RiskScenario:
     critical_roles: list[str]
     weights: Weights
 
-    def __init__(self, *args):
-        if len(args) == 1:
-            self.init_dict_arg(args[0])
-        elif len(args) > 1:
-            self.init_parameters_args(*args)
+    def __init__(self, id: str, scenario: str, critical_roles: list, weights: dict):
+        self.id = id
+        self.scenario = scenario
+        self.critical_roles = critical_roles
+        self.weights = weights
 
     def init_dict_arg(self, object_dict: dict):
         self.risk_id = object_dict["risk_id"]
